@@ -1,0 +1,382 @@
+<!doctype html><html lang="en" translate="no" class="notranslate"><head><meta charset="utf-8"><meta http-equiv="Content-Language" content="en"><meta name="google" content="notranslate"><meta name="robots" content="notranslate"><meta property="og:locale" content="en_US"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#4338ca"><title>B2 English Assessment</title>
+<style>:root{--p:#4338ca;--v:#7c3aed;--ink:#172033}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,#ddd6fe,#f8fafc 48%,#eef2ff)}.wrap{max-width:960px;margin:auto;padding:22px}.hero{background:linear-gradient(135deg,#312e81,#4f46e5 52%,#7c3aed);color:#fff;border-radius:28px;padding:30px;box-shadow:0 22px 55px #312e8130}.hero h1{margin:0;font-size:clamp(29px,5vw,45px)}.hero p{margin:8px 0 0;opacity:.9}.card{background:#fffffff2;border:1px solid #fff;border-radius:24px;padding:24px;margin-top:18px;box-shadow:0 16px 42px #33415514}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{font-size:13px;font-weight:800;color:#475569}input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;margin-top:5px}button{border:0;border-radius:13px;padding:13px 19px;font-weight:800;font-size:15px;cursor:pointer;background:linear-gradient(135deg,var(--p),var(--v));color:#fff}button.secondary{background:#eef2ff;color:#3730a3}button:disabled{opacity:.4}.notice{background:#f5f3ff;border-left:4px solid var(--v);padding:12px 14px;border-radius:10px;margin:16px 0;font-size:14px}.topbar,.nav{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{font-size:12px;font-weight:900;padding:7px 10px;border-radius:999px;background:#ede9fe;color:#5b21b6}.progress{height:9px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:17px 0}#bar{height:100%;background:linear-gradient(90deg,#4f46e5,#8b5cf6)}.section{text-transform:uppercase;letter-spacing:.08em;color:#6d28d9;font-size:12px;font-weight:900}.question{font-size:clamp(21px,3vw,29px);font-weight:800;line-height:1.35;margin:12px 0 20px}.options{display:grid;gap:11px}.option{text-align:left;background:#fff;color:#1e293b;border:2px solid #e2e8f0;box-shadow:none;padding:14px}.option.selected{border-color:#6d28d9;background:#f5f3ff;color:#4c1d95}.nav{margin-top:20px}.questions-list{display:grid;gap:22px}.question-block{background:#fff;border:1px solid #e6e3f3;border-radius:17px;padding:20px}.question-block .question{font-size:18px;margin:0 0 13px}.option{width:100%;display:block;margin:7px 0}.option .letter{font-weight:900;color:#5b21b6;margin-right:9px}.option.selected .letter{color:#4c1d95}.listening-note{font-size:14px;color:#5b21b6;font-weight:700;margin:6px 0 18px}.hidden{display:none!important}#lock{position:fixed;inset:0;z-index:9999;background:#111827f8;display:none;place-items:center;color:#fff;padding:20px}#lock.show{display:grid}.lockbox{width:min(100%,520px);text-align:center;background:#ffffff12;border:1px solid #ffffff2c;border-radius:24px;padding:28px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #dbe2ea;padding:8px;text-align:left;vertical-align:top}th{background:#eef2ff}.scroll{overflow:auto}.teacher{border:2px dashed #8b5cf6}@media(max-width:650px){.wrap{padding:11px}.grid{grid-template-columns:1fr}.hero{padding:23px}.card{padding:17px}}@media print{body{background:white}.hero,#setup,#exam,#studentSummary,#studentResults,#teacherLogin,.no-print{display:none!important}#printReport{display:block!important}.card{box-shadow:none;border:0}}
+.audio-dock{margin:18px 0 22px}.audio-panel{background:linear-gradient(125deg,#eff0ff,#fbfaff);border:1px solid #c7d2fe;border-radius:18px;padding:18px;box-shadow:0 6px 22px #4338ca12}.audio-heading{display:flex;align-items:center;gap:12px;margin-bottom:12px}.audio-heading strong{display:block;color:#312e81;font-size:16px;line-height:1.5}.audio-heading span:not(.audio-icon){display:block;color:#64748b;font-size:13px;margin-top:3px}.audio-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#4338ca;color:white;font-size:26px;flex-shrink:0}.audio-panel audio{display:block;width:100%;min-height:48px}.audio-help{color:#475569;font-size:13px;margin:10px 0 0}@media(max-width:550px){.audio-panel{padding:13px}.audio-heading strong{font-size:15px}}
+
+/* Separate three-play listening limits for each recording */
+.audio-usage{display:flex;justify-content:space-between;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0 10px}
+.audio-count{display:inline-flex;font-size:14px;font-weight:800;color:#4338ca;background:#e0e7ff;border-radius:999px;padding:7px 12px}
+.audio-count.locked-count{color:#991b1b;background:#fee2e2}
+.audio-played{font-size:13px;font-weight:750;color:#475569}
+.audio-progress-track{height:11px;border-radius:999px;overflow:hidden;background:#dbe3f3;cursor:not-allowed}
+.audio-progress-fill{width:0;height:100%;background:linear-gradient(90deg,#6366f1,#8b5cf6);transition:width .15s linear}
+.audio-action-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:13px}
+.audio-play-button{min-width:180px;background:#4338ca}
+.audio-play-button:disabled{cursor:not-allowed;background:#ddd6fe;color:#475569;opacity:1}
+.audio-clock{color:#334155;font-size:13px;font-variant-numeric:tabular-nums;font-weight:700}
+.audio-feedback{color:#475569;font-size:13px;margin-top:12px;line-height:1.5}
+.audio-feedback.audio-locked{color:#991b1b;font-weight:800}
+.audio-panel audio[hidden]{display:none!important}
+
+/* Post-submission answer review: only made visible after submission. */
+.result-intro{color:#475569;line-height:1.6;margin:4px 0 16px}
+.review-group{margin:22px 0 12px;padding:10px 13px;border-radius:12px;background:#eef2ff;color:#312e81;font-size:16px}
+.review-item{border:1px solid #dbe2ea;border-radius:16px;padding:18px;margin:14px 0;background:#fff}
+.review-item.is-right{border-left:5px solid #15803d}
+.review-item.is-wrong{border-left:5px solid #b91c1c}
+.review-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:9px}
+.review-question{font-size:16px;font-weight:800;line-height:1.5;color:#1e293b;margin:0 0 12px}
+.review-status{display:inline-block;padding:6px 11px;border-radius:999px;font-size:12px;font-weight:900}
+.review-status.ok{background:#dcfce7;color:#166534}
+.review-status.bad{background:#fee2e2;color:#991b1b}
+.review-answer{background:#f8fafc;border-radius:11px;padding:10px 13px;margin-top:8px;line-height:1.5;word-break:break-word}
+.review-answer b{display:block;color:#475569;font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.review-answer.correct{background:#f0fdf4}
+.review-answer.incorrect{background:#fef2f2}
+.review-stat{color:#64748b;font-size:13px}
+.review-footer{position:sticky;bottom:10px;background:#fffefef5;backdrop-filter:blur(10px);border:1px solid #e2e8f0;border-radius:14px;padding:12px;display:flex;justify-content:flex-end}
+
+
+/* English-only language protection. Translation extensions are outside a site's full control. */
+html[translate="no"],body[translate="no"],.notranslate { -webkit-locale: "en"; }
+#englishModeNotice{display:none;position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:20000;width:min(680px,calc(100% - 24px));background:#fff7ed;border:2px solid #ea580c;color:#7c2d12;box-shadow:0 12px 42px #0003;border-radius:15px;padding:14px 17px;font-size:14px;line-height:1.5}
+#englishModeNotice.visible{display:block}
+#englishModeNotice .english-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:9px;flex-wrap:wrap}
+#englishModeNotice button{font-size:13px;padding:9px 12px;background:#9a3412}
+#englishModeNotice button.secondary{background:#ffedd5;color:#7c2d12}
+
+</style></head><body translate="no" class="notranslate"><aside id="englishModeNotice" lang="en" translate="no" class="notranslate" role="alert" aria-live="assertive"><strong>English-only assessment</strong><div>Automatic page translation was detected. The assessment text has been restored to English. Please turn off your browser's translation feature or translation extension before continuing.</div><div class="english-actions"><button type="button" onclick="restoreEnglishUI()">Restore English</button><button type="button" class="secondary" onclick="dismissEnglishNotice()">Dismiss</button></div></aside><div class="wrap notranslate" lang="en" translate="no">
+<header class="hero"><h1>B2 English Assessment</h1><p>Two listening exercises • 10 questions • 2 pages</p></header>
+<section id="setup" class="card"><h2>Team Information</h2><p>Complete the activity individually or in a team of up to four students. Student 1 is mandatory.</p><div class="grid">
+<div><label>Student 1 Name *<input id="n1"></label></div><div><label>Student 1 Career / Academic Program *<input id="c1"></label></div>
+<div><label>Student 2 Name<input id="n2"></label></div><div><label>Student 2 Career / Academic Program<input id="c2"></label></div>
+<div><label>Student 3 Name<input id="n3"></label></div><div><label>Student 3 Career / Academic Program<input id="c3"></label></div>
+<div><label>Student 4 Name<input id="n4"></label></div><div><label>Student 4 Career / Academic Program<input id="c4"></label></div></div>
+<div class="notice"><b>Instructions:</b> Exactly 10 listening questions in the same order and with the same answer options as the Word document. Page 1 contains all 5 police interview questions; page 2 contains all 5 business-trip questions. Listen to the recording on each page using the audio player above the questions. Each recording can be listened to a maximum of three complete times. A listen is counted when the recording finishes. You may pause and resume without using another listen. After the third complete listen, that recording locks automatically. Fast-forwarding is disabled. Answer all questions on each page before continuing. No feedback is shown before submission. After submission, use the Check Results button to review all answers without a teacher code.</div><button onclick="startExam()">Start Assessment</button></section>
+<section id="exam" class="card hidden"><div class="topbar"><div class="chips"><span class="chip">Page <span id="qn">1</span>/2</span><span class="chip">Answered <span id="answered">0</span>/10</span><span class="chip">Session <span id="sid"></span></span></div><button id="fsBtn" class="secondary" onclick="requestFS()">Fullscreen</button></div><div class="progress"><div id="bar"></div></div><div id="section" class="section"></div><div id="audioDock" class="audio-dock" aria-label="Listening recordings">
+<div id="audioPanel0" class="audio-panel"><div class="audio-heading"><span class="audio-icon" aria-hidden="true">♫</span><div><strong>Recording 1 — Police Interview</strong><span>Crime audio · 5 questions</span></div></div><div class="audio-usage"><span id="audioCount0" class="audio-count" aria-live="polite">3 of 3 listens available</span><span id="audioPlayed0" class="audio-played">0 / 3 completed</span></div>
+<div class="audio-progress-track" role="progressbar" aria-label="Recording progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="audioProgressTrack0"><div class="audio-progress-fill" id="audioProgress0"></div></div>
+<div class="audio-action-row"><button type="button" id="audioPlay0" onclick="toggleAudio(0)" class="audio-play-button" disabled>▶ Play recording</button><span class="audio-clock" id="audioClock0">0:00 / --:--</span></div>
+<div class="audio-feedback" id="audioFeedback0" aria-live="polite">Each full listen counts once. Pause and resume without losing a listen.</div>
+<audio id="audio0" preload="metadata" playsinline controlsList="nodownload noplaybackrate" disablePictureInPicture aria-label="Police Interview audio recording" hidden><source src="audio/Crime_Audio.mp3" type="audio/mpeg">Your browser does not support HTML5 audio playback.</audio></div>
+<div id="audioPanel1" class="audio-panel hidden"><div class="audio-heading"><span class="audio-icon" aria-hidden="true">♫</span><div><strong>Recording 2 — Business Trip</strong><span>Business trip audio · 5 questions</span></div></div><div class="audio-usage"><span id="audioCount1" class="audio-count" aria-live="polite">3 of 3 listens available</span><span id="audioPlayed1" class="audio-played">0 / 3 completed</span></div>
+<div class="audio-progress-track" role="progressbar" aria-label="Recording progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="audioProgressTrack1"><div class="audio-progress-fill" id="audioProgress1"></div></div>
+<div class="audio-action-row"><button type="button" id="audioPlay1" onclick="toggleAudio(1)" class="audio-play-button" disabled>▶ Play recording</button><span class="audio-clock" id="audioClock1">0:00 / --:--</span></div>
+<div class="audio-feedback" id="audioFeedback1" aria-live="polite">Each full listen counts once. Pause and resume without losing a listen.</div>
+<audio id="audio1" preload="metadata" playsinline controlsList="nodownload noplaybackrate" disablePictureInPicture aria-label="Business Trip audio recording" hidden><source src="audio/Business_Trip.mp3" type="audio/mpeg">Your browser does not support HTML5 audio playback.</audio></div></div><div id="questionsList" class="questions-list"></div><div id="saveState" class="notice">Answer all five questions on this page.</div><div class="nav"><button id="prev" class="secondary" onclick="previous()">Previous</button><button id="next" onclick="next()">Next Page</button></div></section>
+<section id="studentSummary" class="card hidden"><h2>Assessment Submitted</h2><div id="summary"></div>
+<div class="notice"><b>Your results are available.</b> Select <b>Check Results</b> to review all ten questions, your answers and the correct answers. No teacher code is required after submission.</div>
+<div class="nav no-print"><button id="checkResultsButton" type="button" onclick="showStudentResults()">✓ Check Results</button><button class="secondary" onclick="downloadStudentReport()">Download Report</button><button class="secondary" onclick="showTeacherLogin()">Teacher Mode</button></div><div id="sheetMessage" class="notice"></div></section>
+<section id="studentResults" class="card hidden" aria-labelledby="studentResultsHeading"><h2 id="studentResultsHeading">Detailed Assessment Results</h2><p class="result-intro">Review the listening questions in their original order. The correct answer and your response are shown after submission. This review is available without a teacher code.</p><div id="studentReviewContents"></div><div class="review-footer no-print"><button class="secondary" type="button" onclick="hideStudentResults()">Back to Final Summary</button></div></section>
+<section id="teacherLogin" class="card teacher hidden"><h3>Teacher Mode</h3><input id="teacherCode" type="password" placeholder="Teacher code"><button onclick="openTeacher()">Open Detailed Report</button><div id="teacherMsg"></div></section>
+<section id="teacherPanel" class="card teacher hidden"><h2>Detailed Teacher Report</h2><div class="nav no-print"><button onclick="downloadJSON()">Download JSON</button><button onclick="downloadCSV()">Download CSV</button><button class="secondary" onclick="window.print()">Print / Save PDF</button></div><div id="details" class="scroll"></div></section><section id="printReport" class="card hidden"></section></div>
+<div id="lock"><div class="lockbox"><h1>Assessment Locked</h1><p>Teacher authorization is required to continue.</p><input id="unlockCode" type="password" placeholder="Teacher continuation code"><p><button onclick="unlockExam()">Teacher Unlock</button></p><div id="unlockMsg"></div></div></div>
+<script>
+const GOOGLE_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const ASSESSMENT_VERSION = "B2-LISTENING-10-ENGLISH-ONLY-v6.0";
+const TEACHER_HASH = "a5f2d20ac4d68d83692e501b4234a203a25f269a6b01e3f3fa8a3240e05bca5e";
+const TOTAL=10;
+
+// Each recording has its OWN three-complete-listen allowance. Pausing or changing
+// pages does not start a new listen. Standard audio controls are intentionally absent.
+const MAX_LISTENS=3;
+const ATTEMPT_KEY="B2_LISTENING_10_THREE_PLAYS_ACTIVE_ATTEMPT";
+let audioUsage=[0,0];
+let audioAllowedPosition=[0,0];
+let suppressSeeking=[false,false];
+let lastAudioStorage=0;
+function audioTime(t){
+ if(!Number.isFinite(t)||t<0)return "--:--";
+ return Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0");
+}
+function updateAudioUI(i){
+ const el=$("audio"+i), btn=$("audioPlay"+i), count=$("audioCount"+i);
+ const left=MAX_LISTENS-audioUsage[i];
+ const exhausted=left<=0;
+ count.textContent=exhausted?"Audio locked — 0 listens left":left+" of 3 listens remaining";
+ count.classList.toggle("locked-count",exhausted);
+ $("audioPlayed"+i).textContent=audioUsage[i]+" / 3 completed";
+ const canPlay=!!startedAt&&!submitted&&!locked&&current===i&&!exhausted;
+ btn.disabled=!canPlay;
+ btn.textContent=exhausted?"🔒 Recording locked":(!el.paused?"❚❚ Pause recording":audioAllowedPosition[i]>.1?"▶ Resume recording":"▶ Play recording");
+ const t=Number.isFinite(el.duration)&&el.duration>0?el.duration:0;
+ const progress=t?Math.min(100,Math.max(0,(el.currentTime/t)*100)):0;
+ $("audioProgress"+i).style.width=progress+"%";
+ $("audioProgressTrack"+i).setAttribute("aria-valuenow",String(Math.round(progress)));
+ $("audioClock"+i).textContent=audioTime(el.currentTime)+" / "+audioTime(t);
+ const fb=$("audioFeedback"+i);
+ fb.classList.toggle("audio-locked",exhausted);
+ fb.textContent=exhausted?"All three complete listens have been used. This recording is now permanently locked for this attempt.":
+   (el.paused?"A listen counts only after the recording finishes. Pausing and resuming does not use another listen.":"Now playing. Fast-forwarding is disabled. You can pause without losing your current position.");
+}
+function persistAttempt(){
+ if(!startedAt||submitted)return;
+ try{sessionStorage.setItem(ATTEMPT_KEY,JSON.stringify({
+  team,answers,responseTimes,current,startedAt,sessionId,integrity,
+  teacherContinuationUsed,unlockCount,navigationAttemptDetected,
+  audioUsage,audioAllowedPosition
+ }));}catch(e){} // Storage may be unavailable in restrictive browser modes.
+}
+function eraseAttempt(){try{sessionStorage.removeItem(ATTEMPT_KEY)}catch(e){}}
+function restoreInProgressAttempt(){
+ let state;
+ try{state=JSON.parse(sessionStorage.getItem(ATTEMPT_KEY)||"null")}catch(e){return}
+ if(!state||!state.startedAt||!Array.isArray(state.answers)||state.answers.length!==TOTAL)return;
+ team=Array.isArray(state.team)?state.team:[];
+ questions=BANK.map(q=>({...q,options:[...q.options]}));
+ answers=state.answers;
+ responseTimes=Array.isArray(state.responseTimes)&&state.responseTimes.length===TOTAL?state.responseTimes:Array(TOTAL).fill(0);
+ enteredAt=Array(TOTAL).fill(null);
+ current=state.current===1?1:0;
+ startedAt=state.startedAt;
+ sessionId=state.sessionId||"RECOVERED";
+ integrity=Array.isArray(state.integrity)?state.integrity:[];
+ teacherContinuationUsed=!!state.teacherContinuationUsed;
+ unlockCount=Number(state.unlockCount)||0;
+ navigationAttemptDetected=true;
+ audioUsage=[0,1].map(i=>Math.min(MAX_LISTENS,Math.max(0,Number(state.audioUsage?.[i])||0)));
+ audioAllowedPosition=[0,1].map(i=>Math.max(0,Number(state.audioAllowedPosition?.[i])||0));
+ $("setup").classList.add("hidden");$("exam").classList.remove("hidden");
+ $("sid").textContent=sessionId;
+ if(!HAS_FS)$("fsBtn").style.display="none";
+ render();
+ locked=true;
+ pauseAudio();
+ $("lock").classList.add("show");
+ flag("Reload detected; assessment restored and locked for teacher authorization");
+ [0,1].forEach(i=>{
+  const el=$("audio"+i), savedPosition=audioAllowedPosition[i];
+  const resume=()=>{
+   if(audioUsage[i]>=MAX_LISTENS)return;
+   if(Number.isFinite(el.duration)&&savedPosition<el.duration-.2){
+     suppressSeeking[i]=true;
+     try{el.currentTime=savedPosition}catch(e){}
+     suppressSeeking[i]=false;
+   }
+   updateAudioUI(i);
+  };
+  if(el.readyState>=1)resume(); else el.addEventListener("loadedmetadata",resume,{once:true});
+ });
+ [0,1].forEach(updateAudioUI);
+ persistAttempt();
+}
+function initializeLimitedAudio(){
+ [0,1].forEach(i=>{
+  const el=$("audio"+i);
+  el.controls=false;
+  el.playbackRate=1;
+  el.defaultPlaybackRate=1;
+  el.addEventListener("loadedmetadata",()=>updateAudioUI(i));
+  el.addEventListener("play",()=>{
+   if(!startedAt||submitted||locked||current!==i||audioUsage[i]>=MAX_LISTENS){el.pause();return}
+   updateAudioUI(i);
+  });
+  el.addEventListener("pause",()=>{updateAudioUI(i);persistAttempt()});
+  el.addEventListener("ratechange",()=>{if(el.playbackRate!==1)el.playbackRate=1});
+  el.addEventListener("seeking",()=>{
+   if(suppressSeeking[i])return;
+   if(el.currentTime>audioAllowedPosition[i]+0.6){
+    const allowed=audioAllowedPosition[i];
+    suppressSeeking[i]=true;
+    try{el.currentTime=allowed}catch(e){}
+    suppressSeeking[i]=false;
+    if(startedAt&&!submitted)flag("Forward audio seek blocked on recording "+(i+1));
+   }
+  });
+  el.addEventListener("timeupdate",()=>{
+   if(startedAt&&!submitted&&!locked&&current===i&&audioUsage[i]<MAX_LISTENS){
+    audioAllowedPosition[i]=Math.max(audioAllowedPosition[i],el.currentTime);
+    if(Date.now()-lastAudioStorage>700){lastAudioStorage=Date.now();persistAttempt()}
+   }
+   updateAudioUI(i);
+  });
+  el.addEventListener("ended",()=>{
+   // Only a genuine end-of-media playback consumes one listen.
+   if(!startedAt||submitted||locked||current!==i||audioUsage[i]>=MAX_LISTENS||!el.ended||!Number.isFinite(el.duration)||el.currentTime<el.duration-.25)return;
+   audioUsage[i]=Math.min(MAX_LISTENS,audioUsage[i]+1);
+   flag("Recording "+(i+1)+" fully listened to "+audioUsage[i]+" of "+MAX_LISTENS+" times");
+   audioAllowedPosition[i]=0;
+   suppressSeeking[i]=true;
+   try{el.currentTime=0}catch(e){}
+   suppressSeeking[i]=false;
+   updateAudioUI(i);
+   persistAttempt();
+  });
+  updateAudioUI(i);
+ });
+ restoreInProgressAttempt();
+}
+async function toggleAudio(i){
+ if(!startedAt||submitted||locked||current!==i||audioUsage[i]>=MAX_LISTENS)return;
+ const el=$("audio"+i);
+ if(el.paused){
+  try{el.playbackRate=1;await el.play()}catch(e){
+   $("audioFeedback"+i).textContent="Playback could not start. Check that the recording has loaded, then tap Play again.";
+  }
+ }else{el.pause()}
+ updateAudioUI(i);
+}
+document.addEventListener("DOMContentLoaded",initializeLimitedAudio);
+
+const BANK=[{"section": "Listening 1 · Police interview", "type": "listening", "prompt": "Why did the officer come to talk to the woman?", "answer": "He was investigating a crime committed last night.", "options": ["He was delivering a parcel.", "He was investigating a crime committed last night.", "He was offering movie tickets.", "He was looking for a lost pet."]}, {"section": "Listening 1 · Police interview", "type": "listening", "prompt": "What does the woman claim she was doing at 8:00 PM yesterday evening?", "answer": "Watching a movie.", "options": ["Shopping at a grocery store.", "Cooking dinner.", "Watching a movie.", "Sleeping in her bedroom."]}, {"section": "Listening 1 · Police interview", "type": "listening", "prompt": "What movie does the woman state she was watching?", "answer": "Twilight.", "options": ["Dracula.", "Twilight.", "Harry Potter.", "Frankenstein."]}, {"section": "Listening 1 · Police interview", "type": "listening", "prompt": "According to the woman, what timeframe was the movie playing?", "answer": "From 7:00 PM to 9:00 PM.", "options": ["From 6:00 PM to 8:00 PM.", "From 8:00 PM to 10:00 PM.", "From 7:00 PM to 9:00 PM.", "From 9:00 PM to 11:00 PM."]}, {"section": "Listening 1 · Police interview", "type": "listening", "prompt": "How does the woman accidentally reveal her involvement or suspicion at the end of the conversation?", "answer": "She mentions that it was an old woman who got robbed before the officer told her.", "options": ["She mentions that it was an old woman who got robbed before the officer told her.", "She drops a stolen wallet on the floor.", "She admits she did not actually watch the movie.", "She gives a fake name to the officer."]}, {"section": "Listening 2 · Business trip", "type": "listening", "prompt": "What are they doing on Monday morning?", "answer": "Travelling to Oslo.", "options": ["Travelling to Oslo.", "Travelling from Edinburgh.", "Writing a report."]}, {"section": "Listening 2 · Business trip", "type": "listening", "prompt": "What are they doing on Tuesday afternoon?", "answer": "Practising a talk.", "options": ["Finding an office.", "Practising a talk.", "Finishing a report."]}, {"section": "Listening 2 · Business trip", "type": "listening", "prompt": "What time is the first meeting on Wednesday?", "answer": "9:30.", "options": ["9:30.", "8:30.", "10:00."]}, {"section": "Listening 2 · Business trip", "type": "listening", "prompt": "What is the woman doing on Thursday?", "answer": "Book tour.", "options": ["Castle tour.", "Gallery tour.", "Book tour."]}, {"section": "Listening 2 · Business trip", "type": "listening", "prompt": "What does she most want to see?", "answer": "A café.", "options": ["A shop.", "A café.", "A house."]}];
+const $=id=>document.getElementById(id),IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),HAS_FS=!!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen);
+let team=[],questions=[],answers=[],responseTimes=[],enteredAt=[],current=0,startedAt=null,submittedAt=null,sessionId="",submitted=false,locked=false,integrity=[],teacherContinuationUsed=false,unlockCount=0,navigationAttemptDetected=false,finalReport=null;
+function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}function fmt(s){return Math.floor(s/60)+"m "+s%60+"s"}function flag(e){integrity.push({timestamp:new Date().toISOString(),event:e})}
+function collect(){if(!$("n1").value.trim()||!$("c1").value.trim())return false;team=[];for(let i=1;i<=4;i++){let n=$("n"+i).value.trim(),c=$("c"+i).value.trim();if((n&&!c)||(!n&&c))return false;if(n&&c)team.push({name:n,career:c})}return true}function requestFS(){if(!HAS_FS)return;try{let f=document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen,r=f.call(document.documentElement);if(r&&r.catch)r.catch(()=>{})}catch(e){}}
+function startExam(){if(!collect()){alert("Complete both name and career for Student 1, and any additional student included.");return}questions=BANK.map(q=>({...q,options:[...q.options]}));answers=Array(TOTAL).fill(null);responseTimes=Array(TOTAL).fill(0);enteredAt=Array(TOTAL).fill(null);current=0;startedAt=Date.now();enteredAt[0]=startedAt;sessionId="B2-LISTEN-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,7).toUpperCase();$("setup").classList.add("hidden");$("exam").classList.remove("hidden");$("sid").textContent=sessionId;if(!HAS_FS)$("fsBtn").style.display="none";requestFS();render();persistAttempt()}
+function pauseAudio(){["audio0","audio1"].forEach(id=>{const el=$(id);if(el&&!el.paused)el.pause()})}
+function showPageAudio(){pauseAudio();$("audioPanel0").classList.toggle("hidden",current!==0);$("audioPanel1").classList.toggle("hidden",current!==1);[0,1].forEach(updateAudioUI)}
+function render(){showPageAudio();const pageStart=current*5;$("qn").textContent=current+1;$("answered").textContent=answers.filter(x=>x!==null).length;$("bar").style.width=((current+1)/2*100)+"%";$("section").textContent=current===0?"Listening 1 · Police interview":"Listening 2 · Business trip";const host=$("questionsList");host.innerHTML="";const note=document.createElement("p");note.className="listening-note";note.textContent=current===0?"Listen to the police interview. Choose A, B, C, or D.":"Listen to two people talking about a business trip. Choose A, B, or C.";host.appendChild(note);for(let i=pageStart;i<pageStart+5;i++){const q=questions[i],block=document.createElement("section"),head=document.createElement("h3"),opts=document.createElement("div");block.className="question-block";head.className="question";head.textContent=(i+1)+". "+q.prompt;opts.className="options";q.options.forEach((answer,j)=>{const choice=document.createElement("button");choice.type="button";choice.className="option"+(answers[i]===answer?" selected":"");const letter=document.createElement("span");letter.className="letter";letter.textContent=String.fromCharCode(65+j)+".";choice.appendChild(letter);choice.appendChild(document.createTextNode(answer));choice.onclick=()=>{answers[i]=answer;[...opts.children].forEach(el=>el.classList.remove("selected"));choice.classList.add("selected");persistAttempt();$("answered").textContent=answers.filter(x=>x!==null).length;$("saveState").textContent="Answer saved. " + (5-answers.slice(pageStart,pageStart+5).filter(x=>x!==null).length) + " remaining on this page."};opts.appendChild(choice)});block.appendChild(head);block.appendChild(opts);host.appendChild(block)}$("prev").disabled=current===0;$("next").textContent=current===1?"Submit Assessment":"Next Page";$("saveState").textContent="Answer all five questions before proceeding.";enteredAt[current]=Date.now()}
+function record(){if(enteredAt[current]){const time=Math.max(0,(Date.now()-enteredAt[current])/1000);for(let i=current*5;i<current*5+5;i++)responseTimes[i]+=Math.round(time/5);enteredAt[current]=null}}
+function previous(){record();if(current>0){current--;render();persistAttempt()}}
+function next(){const p=current*5;if(answers.slice(p,p+5).some(a=>a===null)){alert("Please answer all five questions on this page before continuing.");return}record();if(current===1)submit();else{current++;render();persistAttempt()}}
+function lock(reason){if(!startedAt||submitted||locked)return;pauseAudio();record();locked=true;flag("Automatic lock: "+reason);$("lock").classList.add("show");[0,1].forEach(updateAudioUI);persistAttempt()}async function hash(s){if(!crypto||!crypto.subtle)return "";let b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}async function valid(s){try{return await hash(s)===TEACHER_HASH}catch(e){return false}}async function unlockExam(){if(await valid($("unlockCode").value)){teacherContinuationUsed=true;unlockCount++;flag("Teacher continuation code accepted");locked=false;$("lock").classList.remove("show");$("unlockCode").value="";$("unlockMsg").textContent="";enteredAt[current]=Date.now();requestFS();[0,1].forEach(updateAudioUI);persistAttempt()}else $("unlockMsg").textContent="Incorrect teacher code."}
+document.addEventListener("visibilitychange",()=>{if(document.hidden)lock("tab/app changed or browser minimized")});if(!IOS)window.addEventListener("blur",()=>setTimeout(()=>{if(startedAt&&!submitted&&!locked&&!document.hasFocus())lock("browser/application focus lost")},180));if(HAS_FS&&!IOS){let ev=("onfullscreenchange" in document)?"fullscreenchange":"webkitfullscreenchange";document.addEventListener(ev,()=>{let active=document.fullscreenElement||document.webkitFullscreenElement;if(startedAt&&!submitted&&!active&&!locked)lock("fullscreen exited")})}window.addEventListener("beforeunload",e=>{if(startedAt&&!submitted){navigationAttemptDetected=true;flag("Close/reload/navigation attempt detected");persistAttempt();e.preventDefault();e.returnValue=""}});window.addEventListener("pagehide",()=>{if(startedAt&&!submitted){navigationAttemptDetected=true;flag("Page hide/navigation attempt detected");persistAttempt()}});["copy","cut","paste"].forEach(ev=>document.addEventListener(ev,e=>{if(startedAt&&!submitted){e.preventDefault();flag(ev+" attempt blocked")}}));document.addEventListener("contextmenu",e=>{if(startedAt&&!submitted){e.preventDefault();flag("Right-click/context menu blocked")}});document.addEventListener("keydown",e=>{if(!startedAt||submitted)return;let k=e.key.toLowerCase();if((e.ctrlKey||e.metaKey)&&["c","v","x","u","s","p"].includes(k)){e.preventDefault();flag("Restricted shortcut blocked: "+k)}if((e.ctrlKey||e.metaKey)&&e.shiftKey&&["i","j","c","k"].includes(k)){e.preventDefault();flag("Developer-tools shortcut blocked: "+k)}if(e.key==="F12"){e.preventDefault();flag("Developer-tools shortcut blocked: F12")}});
+async function submit(){pauseAudio();submittedAt=Date.now();submitted=true;let responses=questions.map((q,i)=>({number:i+1,question:q.prompt,studentResponse:answers[i],correctAnswer:q.answer,isCorrect:answers[i]===q.answer,responseTimeSeconds:responseTimes[i]})),correctTotal=responses.filter(r=>r.isCorrect).length,incorrectTotal=TOTAL-correctTotal,percentage=Number((correctTotal/TOTAL*100).toFixed(1)),grade=Number((correctTotal/TOTAL*5).toFixed(1)),timeSpentSeconds=Math.round((submittedAt-startedAt)/1000);finalReport={assessmentVersion:ASSESSMENT_VERSION,sessionId,team,startedDateTime:new Date(startedAt).toISOString(),submissionDateTime:new Date(submittedAt).toISOString(),responses,correctTotal,incorrectTotal,totalQuestions:TOTAL,percentage,grade,timeSpentSeconds,timerExpired:false,audioPlaybackCounts:[...audioUsage],audioMaxListens:MAX_LISTENS,integrityFlags:integrity,teacherContinuationUsed,unlockCount,navigationAttemptDetected};eraseAttempt();$("studentResults").classList.add("hidden");$("exam").classList.add("hidden");$("studentSummary").classList.remove("hidden");$("summary").innerHTML=`<table><tr><th>Team</th><td>${team.map(x=>esc(x.name)+" — "+esc(x.career)).join("<br>")}</td></tr><tr><th>Session ID</th><td>${esc(sessionId)}</td></tr><tr><th>Correct</th><td>${correctTotal} / 10</td></tr><tr><th>Percentage</th><td>${percentage}%</td></tr><tr><th>Final grade</th><td><b>${grade.toFixed(1)} / 5.0</b></td></tr><tr><th>Time spent</th><td>${fmt(timeSpentSeconds)}</td></tr></table>`;sendSheets()}
+
+// Students can review their own results after submission WITHOUT teacher authorization.
+// This feature is not available until finalReport has been created by submit().
+function optionWithLetter(question, value){
+  const index=question.options.indexOf(value);
+  return (index>=0?String.fromCharCode(65+index)+'. ':'')+String(value??'Not answered');
+}
+function showStudentResults(){
+  if(!submitted||!finalReport)return;
+  const host=$("studentReviewContents");
+  let output='';
+  finalReport.responses.forEach((r,i)=>{
+    const question=questions[i];
+    if(i===0||i===5){
+      output+='<h3 class="review-group">'+(i===0?'Page 1 — Police Interview':'Page 2 — Business Trip')+'</h3>';
+    }
+    const correct=r.isCorrect;
+    const chosen=optionWithLetter(question,r.studentResponse);
+    const expected=optionWithLetter(question,r.correctAnswer);
+    output+='<article class="review-item '+(correct?'is-right':'is-wrong')+'">'+
+      '<div class="review-header"><span class="review-stat">Question '+r.number+' of '+TOTAL+'</span>'+
+      '<span class="review-status '+(correct?'ok':'bad')+'">'+(correct?'✓ Correct':'✕ Incorrect')+'</span></div>'+
+      '<p class="review-question">'+esc(r.question)+'</p>'+
+      '<div class="review-answer '+(correct?'correct':'incorrect')+'"><b>Your answer</b>'+esc(chosen)+'</div>'+
+      '<div class="review-answer correct"><b>Correct answer</b>'+esc(expected)+'</div>'+
+      '</article>';
+  });
+  host.innerHTML=output;
+  $("studentResults").classList.remove("hidden");
+  $("checkResultsButton").textContent="✓ Results Displayed";
+  $("studentResults").scrollIntoView({behavior:'smooth',block:'start'});
+}
+function hideStudentResults(){
+  $("studentResults").classList.add("hidden");
+  $("checkResultsButton").textContent="✓ Check Results";
+  $("studentSummary").scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+async function sendSheets(){if(GOOGLE_SCRIPT_URL.includes("PASTE_YOUR")){$("sheetMessage").textContent="Teacher note: Google Sheets has not been connected yet. Local reports remain available.";return}try{await fetch(GOOGLE_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(finalReport)});$("sheetMessage").textContent="Teacher note: submission request sent; verify the row in Google Sheets (browser cannot confirm receipt)."}catch(e){$("sheetMessage").textContent="Teacher note: Google Sheets could not be reached. Local reports remain available."}}
+function downloadStudentReport(){$("printReport").innerHTML=`<h1>B2 Listening Assessment Report</h1><table><tr><th>Team</th><td>${team.map(x=>esc(x.name)+" — "+esc(x.career)).join("<br>")}</td></tr><tr><th>Session ID</th><td>${sessionId}</td></tr><tr><th>Version</th><td>${ASSESSMENT_VERSION}</td></tr><tr><th>Submission</th><td>${finalReport.submissionDateTime}</td></tr><tr><th>Score</th><td>${finalReport.correctTotal}/10</td></tr><tr><th>Percentage</th><td>${finalReport.percentage}%</td></tr><tr><th>Grade</th><td>${finalReport.grade.toFixed(1)}/5.0</td></tr><tr><th>Time</th><td>${fmt(finalReport.timeSpentSeconds)}</td></tr><tr><th>Integrity flags</th><td>${finalReport.integrityFlags.length}</td></tr><tr><th>Teacher continuation used</th><td>${finalReport.teacherContinuationUsed?"Yes":"No"}</td></tr><tr><th>Unlocks</th><td>${finalReport.unlockCount}</td></tr><tr><th>Audio listens completed</th><td>Crime: ${audioUsage[0]}/3; Business Trip: ${audioUsage[1]}/3</td></tr></table>`;$("printReport").classList.remove("hidden");window.print();setTimeout(()=>$("printReport").classList.add("hidden"),500)}function showTeacherLogin(){$("teacherLogin").classList.remove("hidden")}
+async function openTeacher(){if(!(await valid($("teacherCode").value))){$("teacherMsg").textContent="Incorrect teacher code.";return}$("teacherLogin").classList.add("hidden");$("teacherPanel").classList.remove("hidden");let rows=finalReport.responses.map(r=>`<tr><td>${r.number}</td><td>${esc(r.question)}</td><td>${esc(r.studentResponse)}</td><td>${esc(r.correctAnswer)}</td><td>${r.isCorrect?"Correct":"Incorrect"}</td><td>${r.responseTimeSeconds}s</td></tr>`).join(""),logs=finalReport.integrityFlags.map(f=>`<tr><td>${esc(f.timestamp)}</td><td>${esc(f.event)}</td></tr>`).join("");$("details").innerHTML=`<table><tr><th>Team</th><td>${team.map(x=>esc(x.name)+" — "+esc(x.career)).join("<br>")}</td></tr><tr><th>Session ID</th><td>${sessionId}</td></tr><tr><th>Assessment Version</th><td>${ASSESSMENT_VERSION}</td></tr><tr><th>Started</th><td>${finalReport.startedDateTime}</td></tr><tr><th>Submitted</th><td>${finalReport.submissionDateTime}</td></tr><tr><th>Correct / Incorrect</th><td>${finalReport.correctTotal} / ${finalReport.incorrectTotal}</td></tr><tr><th>Percentage / Grade</th><td>${finalReport.percentage}% / ${finalReport.grade.toFixed(1)}</td></tr><tr><th>Time</th><td>${fmt(finalReport.timeSpentSeconds)}</td></tr><tr><th>Audio listens</th><td>Crime: ${audioUsage[0]}/3; Business Trip: ${audioUsage[1]}/3</td></tr><tr><th>Timer Expired</th><td>No / False</td></tr><tr><th>Integrity flags</th><td>${finalReport.integrityFlags.length}</td></tr><tr><th>Teacher continuation / unlocks</th><td>${finalReport.teacherContinuationUsed?"Yes":"No"} / ${finalReport.unlockCount}</td></tr><tr><th>Navigation attempt</th><td>${finalReport.navigationAttemptDetected?"Yes":"No"}</td></tr></table><h3>All 10 Responses</h3><table><tr><th>#</th><th>Question</th><th>Student</th><th>Correct</th><th>Status</th><th>Time</th></tr>${rows}</table><h3>Integrity Event Log</h3><table>${logs||"<tr><td>No integrity events recorded.</td></tr>"}</table>`}
+function save(c,n,t){let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([c],{type:t}));a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}function downloadJSON(){save(JSON.stringify(finalReport,null,2),sessionId+".json","application/json")}function downloadCSV(){let h=["Question","Question Text","Student Response","Correct Answer","Status","Response Time Seconds"],rows=finalReport.responses.map(r=>[r.number,r.question,r.studentResponse,r.correctAnswer,r.isCorrect?"Correct":"Incorrect",r.responseTimeSeconds]);save([h,...rows].map(x=>x.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n"),sessionId+".csv","text/csv")}
+
+
+// ENGLISH-ONLY PROTECTION: source-language metadata, translate=no plus a translation
+// mutation detector that restores ORIGINAL English strings and question/answer options.
+// This discourages browser auto-translation but cannot guarantee control over extensions,
+// external software, or a user deliberately modifying their own browser.
+const ENGLISH_FIXED_SELECTORS = [
+  '.hero h1','.hero p','#setup > h2','#setup > p','#setup .notice',
+  '#audioPanel0 .audio-heading strong','#audioPanel0 .audio-heading span:not(.audio-icon)',
+  '#audioPanel1 .audio-heading strong','#audioPanel1 .audio-heading span:not(.audio-icon)',
+  '#studentSummary > h2','#studentSummary .notice','#studentResultsHeading',
+  '#studentResults .result-intro','#teacherLogin > h3','#teacherPanel > h2',
+  '#lock h1','#lock .lockbox > p:first-of-type'
+];
+let originalEnglishFragments=[];
+let englishGuardObserver=null;
+let englishGuardQueued=false;
+let englishGuardBusy=false;
+let lastTranslationWarning=0;
+function dismissEnglishNotice(){document.getElementById('englishModeNotice')?.classList.remove('visible')}
+function translationSignsPresent(){
+ const h=document.documentElement,b=document.body;
+ return h.getAttribute('lang')!=='en'||h.getAttribute('translate')!=='no'||
+  b.getAttribute('translate')!=='no'||
+  /(?:^|\s)translated-(?:ltr|rtl)(?:\s|$)/.test(h.className+' '+b.className);
+}
+function fixQuestionText(){
+ if(!startedAt||submitted||!questions.length)return false;
+ let altered=false;
+ const blocks=document.querySelectorAll('#questionsList .question-block');
+ blocks.forEach((block,k)=>{
+   const n=current*5+k,q=questions[n];if(!q)return;
+   const title=block.querySelector('.question');
+   if(title){const expected=(n+1)+'. '+q.prompt;if(title.textContent!==expected){title.textContent=expected;altered=true}}
+   block.querySelectorAll('button.option').forEach((btn,j)=>{
+    const expected=String.fromCharCode(65+j)+'.'+q.options[j];
+    if(btn.textContent!==expected){
+      btn.replaceChildren();
+      const letter=document.createElement('span');letter.className='letter';
+      letter.textContent=String.fromCharCode(65+j)+'.';
+      btn.appendChild(letter);btn.appendChild(document.createTextNode(q.options[j]));
+      altered=true;
+    }
+   });
+ });
+ return altered;
+}
+function resultsTranslationDetected(){
+ if(!submitted||!finalReport||document.getElementById('studentResults').classList.contains('hidden'))return false;
+ const blocks=document.querySelectorAll('#studentReviewContents .review-question');
+ if(blocks.length!==TOTAL)return false;
+ return Array.from(blocks).some((el,i)=>el.textContent!==finalReport.responses[i].question);
+}
+function restoreEnglishUI(){
+ if(englishGuardBusy)return;
+ englishGuardBusy=true;
+ try{
+   let detected=translationSignsPresent();
+   const root=document.documentElement;
+   if(root.getAttribute('lang')!=='en')root.setAttribute('lang','en');
+   if(root.getAttribute('translate')!=='no')root.setAttribute('translate','no');
+   if(document.body.getAttribute('translate')!=='no')document.body.setAttribute('translate','no');
+   root.classList.remove('translated-ltr','translated-rtl');
+   document.body.classList.remove('translated-ltr','translated-rtl');
+   originalEnglishFragments.forEach(([selector,expected])=>{
+     const node=document.querySelector(selector);
+     if(node&&node.innerHTML!==expected){node.innerHTML=expected;detected=true}
+   });
+   if(fixQuestionText())detected=true;
+   if(resultsTranslationDetected()){
+     // Reconstruct the review from the immutable source question bank, not translation.
+     showStudentResults();detected=true;
+   }
+   // Live navigation labels and question-section wording are regenerated from source data.
+   if(startedAt&&!submitted){
+      const section=document.getElementById('section');
+      const sectionEN=current===0?'Listening 1 · Police interview':'Listening 2 · Business trip';
+      if(section.textContent!==sectionEN){section.textContent=sectionEN;detected=true}
+      const next=document.getElementById('next'),nextEN=current===1?'Submit Assessment':'Next Page';
+      if(next.textContent!==nextEN){next.textContent=nextEN;detected=true}
+      document.getElementById('audioCount0')?.setAttribute('translate','no');
+      document.getElementById('audioCount1')?.setAttribute('translate','no');
+   }
+   if(detected){
+     if(startedAt&&!submitted&&typeof flag==='function')flag('Automatic browser translation detected; English restored');
+     document.getElementById('englishModeNotice')?.classList.add('visible');
+     lastTranslationWarning=Date.now();
+   }
+ }finally{englishGuardBusy=false}
+}
+function initEnglishGuard(){
+ originalEnglishFragments=ENGLISH_FIXED_SELECTORS.map(selector=>{
+  const node=document.querySelector(selector);return node?[selector,node.innerHTML]:null
+ }).filter(Boolean);
+ const monitor=new MutationObserver(()=>{
+   if(englishGuardBusy||englishGuardQueued)return;
+   englishGuardQueued=true;
+   requestAnimationFrame(()=>{englishGuardQueued=false;restoreEnglishUI()});
+ });
+ monitor.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class','lang','translate']});
+ englishGuardObserver=monitor;
+ restoreEnglishUI();
+}
+document.addEventListener('DOMContentLoaded',initEnglishGuard);
+
+</script></body></html>
